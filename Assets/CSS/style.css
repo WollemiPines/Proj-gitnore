@@ -6,90 +6,79 @@ body {
 }
 
 /* Header and display time */
-.jumbotron {
+header {
   text-align: center;
-  background-color: transparent;
-  color: black;
-  border-radius: 0;
-  border-bottom: 10px solid black;
+  padding: 5px;
+  background-color: aqua;
 }
 /* All El bellow the solid black line */
 .container {
   display: flex;
   flex-direction: row;
-}
-/* Fixed time of day elements */
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-}
-/* hour and save button sizing */
-.hour,
-.saveBtn {
-  padding: 30px;
-  max-height: 80px;
-  min-height: 80px;
-}
-/* center color changing body */
-.center-block {
-  width: 85%;
-}
-/* center color changing elements withing center block */
-.time-block {
-  text-align: center;
-  border-radius: 15px;
-  list-style-type: none;
   width: 100%;
+  margin: 0 0 0 0;
 }
-/* contains both input feild and btn */
-.time-color {
+h1 {
+  font-size: 35px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 20px;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-left: 20px;
+  border: solid 2px black;
+  margin-top: 20px;
+  width: 25%;
+  height: fit-content;
+}
+.aside > * {
+  margin: 10px 0 10px 0;
+}
+.main-content {
+  padding: 20px;
+}
+
+.forecast-weather-blocks {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
-/* Input feild for form */
-.input-class,
-.input-class:active {
-  padding: 10px;
+#future_block_1,
+#future_block_2,
+#future_block_3,
+#future_block_4,
+#future_block_5 {
+  padding: 30px;
+}
+#future_block_1 div,
+#future_block_2 div,
+#future_block_3 div,
+#future_block_4 div,
+#future_block_5 div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.current-weather-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#current-weather {
+  padding: 20px;
+  border: solid 2px black;
   width: 100%;
-  background-color: inherit;
-  border: none;
-  max-height: 80px;
-  min-height: 80px;
-  border-top: 1px solid white;
-  color: black;
-  text-align: start;
 }
-
-/* class to update background color of input field when JS says to */
-.past {
-  background-color: #d3d3d3;
-  color: white;
-}
-/* class to update background color of input field when JS says to */
-.present {
-  background-color: #ff6961;
-  color: white;
-}
-/* class to update background color of input field when JS says to */
-.future {
-  background-color: #77dd77;
-  color: white;
-}
-/* save btn formating */
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
-  margin-right: -30px;
-}
-
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all 0.3s ease-in-out;
-}
-button {
-  border: none;
+.forecast-weather {
+  padding: 20px;
+  border: solid 2px black;
+  width: 100%;
+  margin-top: 20px;
 }
