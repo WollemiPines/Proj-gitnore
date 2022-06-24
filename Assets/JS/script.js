@@ -1,15 +1,33 @@
 
+var APIKey = '59c84874ea24489395ac33e446edc44a';
+var city;
+var cityDisp = $('#city-name')
+console.log(city);
+
+
+
+
+$('#seachBttn').click(activateQueryURL);
+
+function activateQueryURL(){
+    city = $('input').val();
+    cityDisp.html($('input').val());
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+
+
+    fetch(queryURL)
+    .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)}
+    )};
+
+
 let currentDate = $("#current-date");
 let dynamicDate =  moment().format("DD-MM-YY");
 var new_date = moment(dynamicDate, "DD-MM-YY").add(1, 'days')
 let noDays = 0
-var dynFutureDate
-
-
-
-function dynamicFutureDate(dynFutureDate){
-
-}
 
 function popFutureDates(){
 
