@@ -1,8 +1,15 @@
 
 var APIKey = '59c84874ea24489395ac33e446edc44a';
 var city;
+var lat;
+var long;
 var cityDisp = $('#city-name')
 console.log(city);
+
+var temp = $('#temp');
+var wind =$('#wind');
+var humidity = $('#humidity');
+var uvIndex = $('#uvIndex');
 
 
 
@@ -12,7 +19,7 @@ $('#seachBttn').click(activateQueryURL);
 function activateQueryURL(){
     city = $('input').val();
     cityDisp.html($('input').val());
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&q=" + city + "&appid=" + APIKey;
 
 
     fetch(queryURL)
@@ -20,8 +27,28 @@ function activateQueryURL(){
         return response.json();
       })
       .then(function (data) {
-        console.log(data)}
-    )};
+        console.log(data)
+    
+        lat = data.city.coord.lat
+        long = data.city.coord.lon
+        console.log(lat);
+        console.log(long);
+
+        var newqueryURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,daily&appid=" + APIKey + "&units=metric";
+        fetch(newqueryURL)
+        .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data)
+        temp.html(data.current.temp + "celcius")
+        wind.html(data.current.wind_speed + "m/s");
+        humidity.html(data.current.humidity + "%")
+        uvIndex.html(data.current.uvi)
+    }
+
+      )})};
+   
 
 
 let currentDate = $("#current-date");
