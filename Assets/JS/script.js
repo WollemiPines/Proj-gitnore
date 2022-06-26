@@ -82,7 +82,16 @@ function activateQueryURL(){
         $('#future_uvI4').html(data.daily[4].uvi)
         $('#future_uvI5').html(data.daily[5].uvi)
         $('#future_uvI6').html(data.daily[6].uvi)
-        uvColorClass()
+        uvColorClass();
+
+        $('#icon0').html(data.daily[0].weather[0].icon)
+        $('#icon1').html(data.daily[1].weather[0].icon)
+        $('#icon2').html(data.daily[2].weather[0].icon)
+        $('#icon3').html(data.daily[3].weather[0].icon)
+        $('#icon4').html(data.daily[4].weather[0].icon)
+        $('#icon5').html(data.daily[5].weather[0].icon)
+        $('#icon6').html(data.daily[6].weather[0].icon)
+        iconFill();
         
     }
 
@@ -138,7 +147,6 @@ popFutureDates();
 
 function uvColorClass(){
 
-
     for(let i=0; i<7; i++){
 
         let uvSelector=$('#future_uvI'+i);
@@ -159,5 +167,41 @@ function uvColorClass(){
                 uvSelector.addClass('uvI13');
             }
     }
+}
+function iconFill(){
+    for(let i=0; i<7; i++){
+
+        let iconSelector=$('#icon'+i);
+    
+
+        if(iconSelector.html()==='01d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/01d.png"></img>'));
+        }
+        if(iconSelector.html()==='02d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/02.png"></img>'));
+        }
+        if(iconSelector.html()==='03d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/03d.png"></img>'));
+        }
+        if(iconSelector.html()==='04d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/04d.png"></img>'));
+        }
+        if(iconSelector.html()==='09d'){
+              iconSelector.html($('<img src="./Assets/Media/Icons/09d.png"></img>'));
+        }
+        if(iconSelector.html()==='10d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/10d.png"></img>'));
+        }
+        if(iconSelector.html()==='11d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/11d.png"></img>'));
+        }
+        if(iconSelector.html()==='13d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/13d.png"></img>'));
+        }
+        if(iconSelector.html()==='50d'){
+            iconSelector.html($('<img src="./Assets/Media/Icons/50d.png"></img>'));
+        }
+    }
+
 }
 
