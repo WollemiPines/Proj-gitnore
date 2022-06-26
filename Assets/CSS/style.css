@@ -55,14 +55,16 @@ h3 {
 #future_block_2,
 #future_block_3,
 #future_block_4,
-#future_block_5 {
+#future_block_5,
+#future_block_6 {
   padding: 30px;
 }
 #future_block_1 div,
 #future_block_2 div,
 #future_block_3 div,
 #future_block_4 div,
-#future_block_5 div {
+#future_block_5 div,
+#future_block_6 div {
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -82,3 +84,24 @@ h3 {
   width: 100%;
   margin-top: 20px;
 }
+
+.uvI2{
+background-color: rgb(68, 136, 68);
+border-radius: 25%;
+}
+.uvI5{
+background-color: yellow;
+border-radius: 25%;
+}
+.uvI8{
+  background-color: rgb(254, 132, 2);
+  border-radius: 25%;
+  }
+  .uvI12{
+    background-color: rgb(220, 44, 5);
+    border-radius: 25%;
+    }
+    .uvI13{
+      background-color: rgb(184, 0, 150);
+      border-radius: 25%;
+      }
