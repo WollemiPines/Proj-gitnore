@@ -85,23 +85,32 @@ h3 {
   margin-top: 20px;
 }
 
+.defaultUV{
+  background-color: rgb(255, 255, 255);
+}
 .uvI2{
 background-color: rgb(68, 136, 68);
 border-radius: 25%;
 }
 .uvI5{
-background-color: yellow;
+background-color: rgb(211, 214, 45);
 border-radius: 25%;
 }
-.uvI8{
-  background-color: rgb(254, 132, 2);
+.uvI7{
+  background-color: rgb(255, 177, 22);
   border-radius: 25%;
   }
-  .uvI12{
-    background-color: rgb(220, 44, 5);
+  .uvI9{
+    background-color: rgb(255, 102, 0);
     border-radius: 25%;
     }
-    .uvI13{
-      background-color: rgb(184, 0, 150);
+    .uvI11{
+      background-color: rgb(255, 1, 1);
       border-radius: 25%;
       }
+      .uvI12{
+        background-color: rgb(184, 0, 150);
+        border-radius: 25%;
+        }
+      
+  

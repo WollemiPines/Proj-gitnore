@@ -76,6 +76,8 @@ function activateQueryURL(){
         $('#future_humidity5').html(data.daily[5].humidity + " %")
         $('#future_humidity6').html(data.daily[6].humidity + " %")
 
+    
+
         $('#future_uvI1').html(data.daily[1].uvi)
         $('#future_uvI2').html(data.daily[2].uvi)
         $('#future_uvI3').html(data.daily[3].uvi)
@@ -145,6 +147,8 @@ let futureDate6val = $("#future_date_6");
 
 popFutureDates();
 
+
+
 function uvColorClass(){
 
     for(let i=0; i<7; i++){
@@ -152,20 +156,24 @@ function uvColorClass(){
         let uvSelector=$('#future_uvI'+i);
 
         if(uvSelector.html()<=2){
-              uvSelector.addClass('uvI2');
+              uvSelector.removeClass('uvI2 uvI5 uvI7 uvI9 uvI11 uvI12').addClass('uvI2');
             }
         if(uvSelector.html()>2 && uvSelector.html()<=5){
-              uvSelector.addClass('uvI5');
+              uvSelector.removeClass('uvI2 uvI5 uvI7 uvI9 uvI11 uvI12').addClass('uvI5');
             }
-        if(uvSelector.html()>5 && uvSelector.html()<=8){
-              uvSelector.addClass('uvI8');
+        if(uvSelector.html()>5 && uvSelector.html()<=7){
+              uvSelector.removeClass('uvI2 uvI5 uvI7 uvI9 uvI11 uvI12').addClass('uvI7');
             }   
-        if(uvSelector.html()>8 && uvSelector.html()<=12){
-              uvSelector.addClass('uvI12');
+        if(uvSelector.html()>7 && uvSelector.html()<=9){
+              uvSelector.removeClass('uvI2 uvI5 uvI7 uvI9 uvI11 uvI12').addClass('uvI9');
             } 
-        if(uvSelector.html()>12){
-                uvSelector.addClass('uvI13');
+        if(uvSelector.html()>9 && uvSelector.html()<=11){
+                uvSelector.removeClass('uvI2 uvI5 uvI7 uvI9 uvI11 uvI12').addClass('uvI11');
             }
+        if(uvSelector.html()>11){
+                uvSelector.removeClass('uvI2 uvI5 uvI7 uvI9 uvI11 uvI12').addClass('uvI12');
+         }
+            console.log(uvSelector);
     }
 }
 function iconFill(){
