@@ -22,7 +22,7 @@ function activateQueryURL(){
     cityDisp.html($('input').val()+ "   ");
 
     // Insert city name and API into the query url
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&q=" + city + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=524901&q=" + city + "&appid=" + APIKey;
 
     // fetch data and display in JSON format
     fetch(queryURL)
@@ -39,7 +39,7 @@ function activateQueryURL(){
         console.log(long);
 
         // Because the previous URL cannot collect UV data, and this one does not search by city, the lat and lon are used to serach again for all the data
-        var newqueryURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,minutely,alerts&appid=" + APIKey + "&units=metric";
+        var newqueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,minutely,alerts&appid=" + APIKey + "&units=metric";
         fetch(newqueryURL)
         .then(function (response) {
             return response.json();
