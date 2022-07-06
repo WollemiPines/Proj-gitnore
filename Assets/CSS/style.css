@@ -113,4 +113,8 @@ border-radius: 25%;
         border-radius: 25%;
         }
       
-  
+  .historyElBttn{
+    display: flex;
+    flex-direction: column;
+
+  }
