@@ -36,9 +36,9 @@
     <header class="">
       <h1>Weather Dashboard</h1>
     </header>
-    <!--  -->
+    <!-- Everything below the header -->
     <div class="container">
-      <!--  -->
+      <!-- LHS aside -->
       <div class="aside">
         <h2>Search for a city</h2>
         <input id="searchBar"  type="text" value="Sydney"></input>
@@ -46,8 +46,9 @@
         <br />
         <div id="history"></div>
       </div>
-      <!--  -->
+      <!-- Body -->
       <div class="main-content">
+        <!-- Current weather -->
         <div id="current-weather">
           <div>
           <h2>
@@ -63,6 +64,7 @@
             <li>UV Index: <span class='future_uvI' id="future_uvI0"></span></li>
           </ul> 
         </div>
+        <!-- Forecast weather -->
         <div class="forecast-weather">
           <h3>6 Day Forecast</h3>
           <div class="forecast-weather-blocks">
@@ -120,7 +122,6 @@
     </div>
 
     <!-- links to API's  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <!-- JS file for this document -->

@@ -1,4 +1,6 @@
 
+// Global variables
+// Open weather api variables
 let APIKey = '59c84874ea24489395ac33e446edc44a';
 let city;
 let cityHist;
@@ -6,14 +8,15 @@ let currentList;
 let lat;
 let long;
 let cityDisp = $('#city-name')
-
+// weather condition variables 
 let temp = $('#temp');
 let wind =$('#wind');
 let humidity = $('#humidity');
 let uvIndex = $('#future_uvI0');
-
+// local storage variables
 let history = $('#history');
 let historyEl;
+// moment.js variables
 let futureDateval;
 let futureDate;
 
@@ -21,11 +24,10 @@ let futureDate;
 // click listener for the search bttn
 $('#searchBttn').click(activateQueryURL);
 
-
-
 // function activated when search bttn is pressed
 function activateQueryURL(){
 
+    // Local storage - search history
     function searchHistory(){
     
         localStorage.clear();
@@ -41,8 +43,6 @@ function activateQueryURL(){
             historyEl.addClass("historyElBttn");
             historyEl.src=($("#seachBar").html());
             $('#history').append(historyEl);
-
-
         }
     }
     searchHistory();
@@ -50,7 +50,6 @@ function activateQueryURL(){
 
     // Re-define city value and display it above results
     city = $('input').val();
-
 
     // Insert city name and API into the query url
     let queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=524901&q=" + city + "&appid=" + APIKey;
@@ -129,7 +128,7 @@ for (let i=1; i<=6; i++){
 popFutureDates();
 
 
-
+// change UV colours based on number value
 function uvColorClass(){
 
     for(let i=0; i<7; i++){
@@ -157,11 +156,11 @@ function uvColorClass(){
           
     }
 }
+
+// change icons depending on weather conditions
 function iconFill(){
     for(let i=0; i<7; i++){
-
         let iconSelector=$('#icon'+i);
-    
 
         if(iconSelector.html()==='01d'){
             iconSelector.html($('<img src="./Assets/Media/Icons/01d.png"></img>'));
