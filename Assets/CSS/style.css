@@ -1,3 +1,8 @@
+:root{
+  --teal: rgba(0, 220, 220, 0.74);
+  --pink: rgba(223, 94, 199, 0.677);
+}
+
 /* Body, all text */
 body {
   font-family: "Open Sans", sans-serif;
@@ -9,7 +14,9 @@ body {
 header {
   text-align: center;
   padding: 5px;
-  background-color: aqua;
+  background-color: rgba(0, 220, 220, 0.74);
+  border: 2px black solid;
+  border-radius: 5px;
 }
 /* All El bellow the solid black line */
 .container {
@@ -23,7 +30,7 @@ h1 {
 }
 h2 {
   font-size: 20px;
-  font-weight: bold;
+  font-weight:600;
 }
 h3 {
   font-size: 20px;
@@ -34,7 +41,6 @@ h3 {
   flex-direction: column;
   padding: 20px;
   margin-left: 20px;
-  border: solid 2px black;
   margin-top: 20px;
   width: 25%;
   height: fit-content;
@@ -74,47 +80,74 @@ h3 {
   padding-bottom: 5px;
 }
 #current-weather {
+  display: flex;
+  flex-direction: row;
+ justify-content: space-around;
   padding: 20px;
-  border: solid 2px black;
+  border: solid 4px var(--pink);
   width: 100%;
+  border-radius: 30px;
 }
 .forecast-weather {
   padding: 20px;
-  border: solid 2px black;
   width: 100%;
   margin-top: 20px;
 }
 
 .defaultUV{
   background-color: rgb(255, 255, 255);
+  padding: 2.5px;
 }
 .uvI2{
 background-color: rgb(68, 136, 68);
+padding: 2.5px;
 border-radius: 25%;
 }
 .uvI5{
 background-color: rgb(211, 214, 45);
+padding: 2.5px;
 border-radius: 25%;
 }
 .uvI7{
   background-color: rgb(255, 177, 22);
+  padding: 2.5px;
   border-radius: 25%;
   }
   .uvI9{
     background-color: rgb(255, 102, 0);
+    padding: 2.5px;
     border-radius: 25%;
     }
     .uvI11{
       background-color: rgb(255, 1, 1);
+      padding: 2.5px;
       border-radius: 25%;
       }
       .uvI12{
         background-color: rgb(184, 0, 150);
+        padding: 2.5px;
         border-radius: 25%;
         }
       
   .historyElBttn{
     display: flex;
     flex-direction: column;
+    padding: 3px;
+    margin: 10px;
+    border: 2px black solid;
+    border-radius: 5px;
+    background-color: var(--pink);
 
+  }
+  #searchBttn{
+      padding: 3px;
+    margin: 10px;
+    border: 2px black solid;
+    border-radius: 5px;
+    background-color: var(--teal);
+  }
+
+  #searchBar{
+    border:3px var(--pink) solid;
+    border-radius: 5px;
   }

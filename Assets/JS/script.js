@@ -19,7 +19,7 @@ let futureDate;
 
 
 // click listener for the search bttn
-$('#seachBttn').click(activateQueryURL);
+$('#searchBttn').click(activateQueryURL);
 
 
 // function activated when search bttn is pressed
