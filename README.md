@@ -22,7 +22,7 @@ Actual fuction: Functions as expected, apart from the saved history items. These
 
 ---
 
-Deployment: When the HTML, CSS and JS files are displayed by any browser the code should appear as indicated by this example image: ![example](./assets/media/example.png)
+Deployment: When the HTML, CSS and JS files are displayed by any browser the code should appear as indicated by this example image: ![example](/assets/media/example.png)
 The page can also be access via the folowing url: https://wollemipines.github.io/Weather-Site/
 
 ---
