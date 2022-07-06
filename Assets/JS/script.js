@@ -22,6 +22,7 @@ let futureDate;
 $('#searchBttn').click(activateQueryURL);
 
 
+
 // function activated when search bttn is pressed
 function activateQueryURL(){
 
@@ -40,25 +41,16 @@ function activateQueryURL(){
             historyEl.addClass("historyElBttn");
             historyEl.src=($("#seachBar").html());
             $('#history').append(historyEl);
+
+
         }
     }
     searchHistory();
    
 
-
-  // for(let i = 0; i < googleAPIData.length; i++) {
-        //   let imageElement = document.createElement("img");
-        //   imageElement.classList.add("imageEl");
-        //   let imgThumbLink = data.items[i].image.thumbnailLink;
-        //   let imgLink = data.items[i].image.link;
-        //   searchResultsBox.appendChild(imageElement);
-        //   searchResultsBox.setAttribute("data-imgEL", imgLink);
-        //   imageElement.setAttribute("src", imgThumbLink);  
-        //   }
-
     // Re-define city value and display it above results
     city = $('input').val();
-    cityDisp.html($('input').val()+ "   ");
+
 
     // Insert city name and API into the query url
     let queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=524901&q=" + city + "&appid=" + APIKey;
@@ -66,7 +58,14 @@ function activateQueryURL(){
     // fetch data and display in JSON format
     fetch(queryURL)
     .then(function (response) {
-        return response.json();
+        if(response.status=== 200){
+            cityDisp.html($('input').val()+ "   ");  
+        }
+        else{
+            cityDisp.html("Not a valid input  ");
+        }
+        return response.json()
+       
       })
       .then(function (data) {
        
@@ -195,3 +194,8 @@ function iconFill(){
 
 }
 
+$('.historyElBttn').click(searchHistoryBttn);
+function searchHistoryBttn(){
+    city=$('.historyElBttn').html();
+    activateQueryURL()
+}
