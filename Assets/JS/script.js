@@ -8,6 +8,7 @@ let currentList;
 let lat;
 let long;
 let cityDisp = $('#city-name')
+let userInput = $('input')
 // weather condition variables 
 let temp = $('#temp');
 let wind =$('#wind');
@@ -28,28 +29,10 @@ $('#searchBttn').click(activateQueryURL);
 function activateQueryURL(){
 
     // Local storage - search history
-    function searchHistory(){
-    
-        localStorage.clear();
-        cityHist = $('input')
-        localStorage.setItem("cityHist", cityHist.val());
-
-        historyEl=localStorage.getItem("cityHist");
-
-        for(let i=0; i<localStorage.length; i++){
-  
-            historyEl = $("<a></a>")
-            historyEl.html(localStorage.getItem("cityHist"))
-            historyEl.addClass("historyElBttn");
-            historyEl.src=($("#seachBar").html());
-            $('#history').append(historyEl);
-        }
-    }
     searchHistory();
    
-
     // Re-define city value and display it above results
-    city = $('input').val();
+    city = userInput.val();
 
     // Insert city name and API into the query url
     let queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=524901&q=" + city + "&appid=" + APIKey;
@@ -58,7 +41,7 @@ function activateQueryURL(){
     fetch(queryURL)
     .then(function (response) {
         if(response.status=== 200){
-            cityDisp.html($('input').val()+ "   ");  
+            cityDisp.html(userInput.val()+ "   ");  
         }
         else{
             cityDisp.html("Not a valid input  ");
@@ -197,4 +180,22 @@ $('.historyElBttn').click(searchHistoryBttn);
 function searchHistoryBttn(){
     city=$('.historyElBttn').html();
     activateQueryURL()
+}
+
+function searchHistory(){
+    for(let i=0; i<localStorage.length; i++){
+    cityHist[i] = userInput
+    console.log(userInput);
+    localStorage.setItem("cityHist"+i, cityHist[i].val());
+    console.log(historyEl.html(localStorage.getItem("cityHist"+i)));
+}
+
+    for(let i=0; i<localStorage.length; i++){
+
+        historyEl = $("<a></a>")
+        historyEl.html(localStorage.getItem("cityHist"+i))
+        historyEl.addClass("historyElBttn");
+        historyEl.src=($("#seachBar").html());
+        $('#history').append(historyEl);
+    }
 }
