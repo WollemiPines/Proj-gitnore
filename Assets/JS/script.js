@@ -8,7 +8,6 @@ let currentList;
 let lat;
 let long;
 let cityDisp = $('#city-name')
-let userInput = $('input')
 // weather condition variables 
 let temp = $('#temp');
 let wind =$('#wind');
@@ -21,18 +20,57 @@ let historyEl;
 let futureDateval;
 let futureDate;
 
+let searchTerm;
+var searchHistoryArray = [];
+clearBttn = $('#clearBttn');
+
 
 // click listener for the search bttn
 $('#searchBttn').click(activateQueryURL);
+
+// Log search history to local storage
+function logHistory() {
+    searchTerm= $('input').val();
+    searchHistoryArray.push(searchTerm);
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistoryArray));
+};
+
+// Display search history to page 
+function displaySearchHistory() {
+    let searchHistoryArray = JSON.parse(localStorage.getItem("searchHistory"));
+    console.log(searchHistoryArray);
+    $('history').html("");
+    clearBttn.attr("class", "show");
+    for (let i = 0; i < searchHistoryArray.length; i++) {
+        let searchHistoryItem = $("li");
+        searchHistoryItem.text(searchHistoryArray[i]);
+        history.append(searchHistoryItem);
+    }
+};
+
+// event listener for clear search history
+clearBttn.click(clearSearchHistory);
+
+// function to clear search history
+
+function clearSearchHistory() {
+    localStorage.clear();
+    searchHistoryArray = [];
+    history.html("");
+    clearBttn.attr("class", "hide");
+};
 
 // function activated when search bttn is pressed
 function activateQueryURL(){
 
     // Local storage - search history
-    searchHistory();
+    logHistory();
+    displaySearchHistory();
+
    
+
     // Re-define city value and display it above results
-    city = userInput.val();
+    city = $('input').val();
 
     // Insert city name and API into the query url
     let queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=524901&q=" + city + "&appid=" + APIKey;
@@ -41,7 +79,7 @@ function activateQueryURL(){
     fetch(queryURL)
     .then(function (response) {
         if(response.status=== 200){
-            cityDisp.html(userInput.val()+ "   ");  
+            cityDisp.html($('input').val()+ "   ");  
         }
         else{
             cityDisp.html("Not a valid input  ");
@@ -149,7 +187,7 @@ function iconFill(){
             iconSelector.html($('<img src="./Assets/Media/Icons/01d.png"></img>'));
         }
         if(iconSelector.html()==='02d'){
-            iconSelector.html($('<img src="./Assets/Media/Icons/02.png"></img>'));
+            iconSelector.html($('<img src="./Assets/Media/Icons/02d.png"></img>'));
         }
         if(iconSelector.html()==='03d'){
             iconSelector.html($('<img src="./Assets/Media/Icons/03d.png"></img>'));
@@ -180,22 +218,4 @@ $('.historyElBttn').click(searchHistoryBttn);
 function searchHistoryBttn(){
     city=$('.historyElBttn').html();
     activateQueryURL()
-}
-
-function searchHistory(){
-    for(let i=0; i<localStorage.length; i++){
-    cityHist[i] = userInput
-    console.log(userInput);
-    localStorage.setItem("cityHist"+i, cityHist[i].val());
-    console.log(historyEl.html(localStorage.getItem("cityHist"+i)));
-}
-
-    for(let i=0; i<localStorage.length; i++){
-
-        historyEl = $("<a></a>")
-        historyEl.html(localStorage.getItem("cityHist"+i))
-        historyEl.addClass("historyElBttn");
-        historyEl.src=($("#seachBar").html());
-        $('#history').append(historyEl);
-    }
 }
